@@ -1,4 +1,4 @@
-__author__ = 'adrie_000'
+__author__ = 'BELLAICHE Adrien'
 
 from os import listdir
 from ford_fulkerson import execute_algorithm
@@ -32,6 +32,7 @@ for name in file_names:
     name_id[clean_line(name.split(".")[0])] = k
 idKnows = [[] for _ in name_id]
 # Definition des connaissances
+corresponding_file = open('correspondance.txt', 'w')
 for name in file_names:
     self_name = clean_line(name.split(".")[0])
     selfID = name_id[self_name]
@@ -42,11 +43,7 @@ for name in file_names:
                 if get_name(line) in name_id:
                     if get_name(line) != self_name:
                         idKnows[selfID].append(name_id[get_name(line)])
-corresponding_file = open('correspondance.txt', 'w')
-for name in file_names:
-    name_cleaned = clean_line(name.split(".")[0])
-    selfID = name_id[name_cleaned]
-    corresponding_file.write(str(selfID) + " " + name_cleaned + "\n")
+    corresponding_file.write(str(selfID) + " " + self_name + "\n")
 corresponding_file.close()
 
 for name in name_id:

@@ -1,4 +1,4 @@
-__author__ = 'moitiero'
+__author__ = 'MOITIE Roderic'
 
 from Tools import Vertex, PrioQueue
 
